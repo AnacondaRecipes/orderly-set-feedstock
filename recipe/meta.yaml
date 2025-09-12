@@ -26,6 +26,8 @@ requirements:
 test:
   source_files:
     - tests
+  imports:
+    - orderly_set
   requires:
     - pip
     - pytest
