@@ -24,10 +24,14 @@ requirements:
     - python
 
 test:
+  source_files:
+    - tests
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest
 
 about:
   home: https://github.com/seperman/orderly-set
