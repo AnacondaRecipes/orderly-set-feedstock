@@ -36,6 +36,8 @@ test:
 about:
   home: https://github.com/seperman/orderly-set
   summary: Orderly Set is a package containing multiple implementations of Ordered Set.
+  description: |
+    Orderly Set previously known as Ordered Set is a package containing multiple implementations of Ordered Set.
   license: MIT
   license_family: MIT
   license_file: MIT-LICENSE
