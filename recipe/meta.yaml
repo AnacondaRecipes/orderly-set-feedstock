@@ -1,0 +1,46 @@
+{% set name = "orderly-set" %}
+{% set version = "5.5.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: e87185c8e4d8afa64e7f8160ee2c542a475b738bc891dc3f58102e654125e6ce
+
+build:
+  number: 0
+  skip: true  # [py<38]
+  script: {{ PYTHON }} -m pip install . --no-build-isolation --no-deps
+
+requirements:
+  host:
+    - python
+    - pip
+    - flit-core >=3.2,<4
+  run:
+    - python
+
+test:
+  source_files:
+    - tests
+  imports:
+    - orderly_set
+  requires:
+    - pip
+    - pytest
+  commands:
+    - pip check
+    - pytest -v tests
+
+about:
+  home: https://github.com/seperman/orderly-set
+  summary: Orderly Set is a package containing multiple implementations of Ordered Set.
+  description: |
+    Orderly Set previously known as Ordered Set is a package containing multiple implementations of Ordered Set.
+  license: MIT
+  license_family: MIT
+  license_file: MIT-LICENSE
+  dev_url: https://github.com/seperman/orderly-set
+  doc_url: https://github.com/seperman/orderly-set/blob/master/README.md
