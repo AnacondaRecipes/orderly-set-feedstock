@@ -1,14 +1,13 @@
 {% set name = "orderly-set" %}
 {% set version = "5.5.0" %}
-{% set sha256 = "e87185c8e4d8afa64e7f8160ee2c542a475b738bc891dc3f58102e654125e6ce" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/orderly_set-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: e87185c8e4d8afa64e7f8160ee2c542a475b738bc891dc3f58102e654125e6ce
 
 build:
   number: 0
@@ -33,7 +32,7 @@ test:
     - pytest
   commands:
     - pip check
-    - pytest
+    - pytest -v tests
 
 about:
   home: https://github.com/seperman/orderly-set
